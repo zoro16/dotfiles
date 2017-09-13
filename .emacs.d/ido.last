@@ -1,0 +1,86 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/com/" . "stopwatch/")
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/" . "com/")
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/" . "java/")
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/" . "main/")
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/" . "src/")
+ ("/Users/zoro/Devs/Projects/stopwatch/android/" . "app/")
+ ("/Users/zoro/Devs/Projects/stopwatch/" . "android/")
+ ("/Users/" . "zoro/")
+ ("/" . "Users/")
+ ("/Users/zoro/Devs/Production/moby-finance/mobyfin/" . "bo/")
+ ("/Users/zoro/Devs/Production/moby-finance/" . "mobyfin/")
+ ("/Users/zoro/Devs/Production/" . "moby-finance/")
+ ("/Users/zoro/Devs/" . "Production/")
+ ("/Users/zoro/" . "Devs/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/zoro/"
+ "/Users/zoro/Devs/Projects/stopwatch/"
+ "/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/com/stopwatch/"
+ "/Users/zoro/Devs/Production/moby-finance/mobyfin/bo/"
+ "/Users/zoro/Devs/Production/moby-finance/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+ "index.android.js"
+ "MainActivity.java"
+ "app.json"
+ "index.ios.js"
+ "handlers.py"
+ "views.py"
+ "Makefile"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/zoro/" (22968 64409 0 0) "Public/" "Pictures/" "Music/" "Movies/" "Library/" "Downloads/" "dotfiles/" "Documents/" "Devs/" "Desktop/" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-zoro’s MacBook Pro-5.2" ".viminfo" ".Trash/" ".ssh/" ".smex-items" ".oracle_jre_usage/" ".oh-my-zsh/" ".npm/" ".emacs.d/" ".emacs-backups/" ".emacs" ".DS_Store" ".config/" ".CFUserTextEncoding" ".bash_sessions/" ".bash_history" ".android/" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/" (22968 64164 0 0) "package.json" "node_modules/" "ios/" "index.ios.jsx" "index.ios.js" "index.android.js" "app.json" "android/" "__tests__/" ".watchmanconfig" ".gitignore" ".gitattributes" ".flowconfig" ".DS_Store" ".buckconfig" ".babelrc" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/com/stopwatch/" (22686 62381 0 0) "MainApplication.java" "MainActivity.java" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/com/" (22686 62381 0 0) "stopwatch/" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/java/" (22686 62381 0 0) "com/" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/main/" (22686 62381 0 0) "res/" "java/" "AndroidManifest.xml" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/src/" (22686 62381 0 0) "main/" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/app/" (22967 46478 0 0) "src/" "proguard-rules.pro" "build.gradle" "build/" "BUCK" "app.iml" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/stopwatch/android/" (22967 46478 0 0) "stopwatch.iml" "settings.gradle" "local.properties" "keystores/" "gradlew.bat" "gradlew" "gradle.properties" "gradle/" "build.gradle" "build/" "app/" ".idea/" ".gradle/" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/Devs/Projects/" (22967 46443 0 0) "weekdays/" "url_shortener/" "try-django-19-master.zip" "Try-Django-1.8.zip" "travel_package.zip" "todomvc/" "stopwatch/" "srvup-membership-master.zip" "scrummer-web/" "scrummer/" "scraping-project/" "react-js-tutorials/" "python-stuff/" "peckish/" "examples/" "ecommerce-master.zip" "django-documentation.pdf" "chat-app-redux/" ".DS_Store" "../" "./")
+
+ ("/Users/" (22967 24111 0 0) "zoro/" "Shared/" ".localized" "../" "./")
+
+ ("/Users/zoro/Devs/Production/moby-finance/mobyfin/bo/" (22968 11723 0 0) "views.py" "urls.py" "tests.py" "templates/" "static/" "printing.py" "models.py" "migrations/" "helper.py" "handlers.py" "forms.py" "email.py" "apps.py" "admin.py" "__pycache__/" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/Devs/Production/moby-finance/mobyfin/" (22967 38694 0 0) "tools.requirements.txt" "tools.entrypoint.sh" "sms/" "search/" "requirements.txt" "products/" "mypy.ini" "mobyfin/" "media/" "manage.py" "loanapps/" "home/" "entrypoint.sh" "customers/" "common/" "bo/" "authentication/" ".isort.cfg" ".gitignore" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/dotfiles/" (22967 47092 0 0) "zshrc" "README.md" "emacs" "debian/" ".git/" "../" "./")
+
+ ("/Users/zoro/Devs/Production/moby-finance/" (22967 38694 0 0) "README.md" "mobyfin/" "Makefile" "docs/" "devops/" ".python-version" ".gitignore" ".git/" ".env" ".DS_Store" ".dockerignore" ".build_no" "../" "./")
+
+ ("/Users/zoro/Devs/Production/" (22967 38696 0 0) "wobb-mobile/" "temp/" "moby-finance/" "dcr-mycover/" "allianz-kite-esub-frontend/" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/Devs/" (22967 38803 0 0) "Projects/" "Production/" "Infinite-Code/" "django/" ".DS_Store" "../" "./")
+
+ ("/Users/zoro/.emacs.d/" (22967 47386 0 0) "elpa/" "auto-save-list/" "../" "./")
+
+ ("/Users/zoro/.emacs.d/elpa/" (22967 49875 0 0) "smex-3.0/" "popup-0.5/" "helm-ebdb-readme.txt" "color-theme-solarized-20120301/" "color-theme-molokai-0.1/" "auto-complete-1.4/" "archives/" "all-readme.txt" "ac-slime-0.5/" "ac-python-20110519/" "../" "./")
+
+ ("/Users/zoro/.emacs.d/elpa/color-theme-molokai-0.1/" (22967 49875 0 0) "color-theme-molokai.el" "color-theme-molokai-pkg.el" "color-theme-molokai-autoloads.el" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
