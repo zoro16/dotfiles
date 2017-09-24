@@ -1,11 +1,12 @@
-                                        ; ================================================
-                                        ;                ESSENTIAL CONFIGS
-                                        ; ================================================
+; ================================================
+;                ESSENTIAL CONFIGS
+; ================================================
 (menu-bar-mode -1)
 (ido-mode)
 (column-number-mode)
 (show-paren-mode)
-
+;; (setq highlight-indentation-mode 1)
+(add-hook 'prog-mode-hook 'highlight-indentation-mode)
 (xterm-mouse-mode 1)
 
 (setq-default indent-tabs-mode nil)
@@ -34,24 +35,25 @@
 
 (setq-default c-basic-offset 4)
                                         ; style I want to use in c++ mode
-(c-add-style "my-style" 
-	     '("stroustrup"
-	       (indent-tabs-mode . nil)        ; use spaces rather than tabs
-	       (c-basic-offset . 4)            ; indent by four spaces
-	       (c-offsets-alist . ((inline-open . 0)  ; custom indentation rules
-				   (brace-list-open . 0)
-				   (statement-case-open . +)))))
+(c-add-style "my-style"
+             '("stroustrup"
+               (indent-tabs-mode . nil)        ; use spaces rather than tabs
+               (c-basic-offset . 4)            ; indent by four spaces
+               (c-offsets-alist . ((inline-open . 0)  ; custom indentation rules
+                                   (brace-list-open . 0)
+                                   (statement-case-open . +)))))
 
 (defun my-c++-mode-hook ()
   (c-set-style "my-style")        ; use my-style defined above
-  (auto-fill-mode)         
+  (auto-fill-mode)
   (c-toggle-auto-hungry-state 1))
 
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (setq multi-term-program "/bin/zsh")
-                                        ; ================================================
-                                        ;                   BINDING/MAPPING
-                                        ; ================================================
+
+; ================================================
+;                   BINDING/MAPPING
+; ================================================
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-commad)
 
@@ -68,9 +70,9 @@
 (global-set-key [f8] 'helm-projectile)
 (global-set-key [f9] 'helm-projectile-grep)
 
-                                        ; ================================================
-                                        ;               JAVASCRIPT/WEB MODES 
-                                        ; ================================================
+; ================================================
+;               JAVASCRIPT/WEB MODES
+; ================================================
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
@@ -92,20 +94,21 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-                                        ; ================================================
-                                        ;               PYTHON MODES 
-                                        ; ================================================
+; ================================================
+;               PYTHON MODES
+; ================================================
 (setq flymake-python-pyflakes-executable "flake8")
 
 
-                                        ; ================================================
-                                        ;               YAML MODES 
-                                        ; ================================================
+; ================================================
+;               YAML MODES
+; ================================================
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook 'flymake-yaml-load)
-                                        ; ================================================
-                                        ;                   BACKUPS
-                                        ; ================================================
+
+; ================================================
+;                   BACKUPS
+; ================================================
 (setq
  backup-by-copying t      ; don't clobber symlinks
  backup-directory-alist
@@ -116,9 +119,9 @@
  version-control t)       ; use versioned backups
 
 
-                                        ; ================================================
-                                        ;                   TAGS
-                                        ; ================================================
+; ================================================
+;                   TAGS
+; ================================================
 (setq path-to-ctags "/usr/bin/ctags")
 
 (defun create-tags (dir-name)
@@ -128,9 +131,9 @@
    (format "%s -f TAGS -R %s" path-to-ctags (dir-name)))
   )
 
-                                        ; ================================================
-                                        ;                   APACHE-MODE
-                                        ; ================================================
+; ================================================
+;                   APACHE-MODE
+; ================================================
 (autoload 'apache-mode "apache-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.htaccess\\'"   . apache-mode))
 (add-to-list 'auto-mode-alist '("httpd\\.conf\\'"  . apache-mode))
@@ -138,9 +141,9 @@
 (add-to-list 'auto-mode-alist '("access\\.conf\\'" . apache-mode))
 (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
 
-                                        ; ================================================
-                                        ;                   PACKAGES
-                                        ; ================================================
+; ================================================
+;                   PACKAGES
+; ================================================
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
