@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "jedi" "jedi.el" (22967 61850 0 0))
+;;;### (autoloads nil "jedi" "jedi.el" (23164 2270 670709 79000))
 ;;; Generated autoloads from jedi.el
 
 (autoload 'jedi:ac-setup "jedi" "\
@@ -31,6 +31,10 @@ Complete code at point.
 \(fn)" nil nil)
 
 (setq jedi:setup-function #'jedi:ac-setup jedi:mode-function #'jedi:auto-complete-mode)
+
+;;;***
+
+;;;### (autoloads nil nil ("jedi-pkg.el") (23164 2268 398703 257000))
 
 ;;;***
 

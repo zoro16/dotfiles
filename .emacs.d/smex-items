@@ -1,0 +1,19 @@
+
+;; ----- smex-history -----
+(
+ highlight-indentation-mode
+ highlight-indentation-current-column-mode
+ package-install
+ global-flycheck-mode
+ cd
+ 5x5
+ arp
+)
+
+;; ----- smex-data -----
+(
+ (global-flycheck-mode . 1)
+ (package-install . 1)
+ (highlight-indentation-mode . 2)
+ (highlight-indentation-current-column-mode . 1)
+)

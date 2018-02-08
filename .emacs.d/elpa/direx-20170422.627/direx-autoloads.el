@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "direx" "direx.el" (22967 61902 0 0))
+;;;### (autoloads nil "direx" "direx.el" (23164 2263 490690 723000))
 ;;; Generated autoloads from direx.el
 
 (autoload 'direx:jump-to-directory "direx" "\
@@ -18,8 +18,8 @@
 
 ;;;***
 
-;;;### (autoloads nil "direx-project" "direx-project.el" (22967 61902
-;;;;;;  0 0))
+;;;### (autoloads nil "direx-project" "direx-project.el" (23164 2263
+;;;;;;  482690 702000))
 ;;; Generated autoloads from direx-project.el
 
 (autoload 'direx-project:jump-to-project-root "direx-project" "\
@@ -34,7 +34,7 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("direx-pkg.el") (22967 61902 0 0))
+;;;### (autoloads nil nil ("direx-pkg.el") (23164 2263 474690 682000))
 
 ;;;***
 

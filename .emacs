@@ -1,11 +1,12 @@
-; ================================================
-;                ESSENTIAL CONFIGS
-; ================================================
+;; ================================================
+;;                ESSENTIAL CONFIGS
+;; ================================================
+
 (menu-bar-mode -1)
 (ido-mode)
 (column-number-mode)
 (show-paren-mode)
-;; (setq highlight-indentation-mode 1)
+(setq highlight-indentation-mode 1)
 (add-hook 'prog-mode-hook 'highlight-indentation-mode)
 (xterm-mouse-mode 1)
 
@@ -71,7 +72,7 @@
 (global-set-key [f9] 'helm-projectile-grep)
 
 ; ================================================
-;               JAVASCRIPT/WEB MODES
+;                   WEB MODES
 ; ================================================
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
@@ -83,21 +84,64 @@
 (setq web-mode-enable-css-colorization t)
 (setq web-mode-enable-comment-keywords t)
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js-mode-hook 'js2-minor-mode)
+; ================================================
+;               JAVASCRIPT MODES
+; ================================================
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+;; use eslint with web-mode for jsx files
+;; (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
-(add-hook 'js2-mode-hook 'skewer-mode)
+;; customize flycheck temp file prefix
+(setq-default flycheck-temp-prefix ".flycheck")
+
+(defadvice js-jsx-indent-line (after js-jsx-indent-line-after-hack activate)
+  "Workaround sgml-mode and follow airbnb component style."
+  (save-excursion
+    (beginning-of-line)
+    (if (looking-at-p "^ +\/?> *$")
+        (delete-char sgml-basic-offset))))
+
+(with-eval-after-load 'rjsx-mode
+  (define-key rjsx-mode-map "<" nil)
+  (define-key rjsx-mode-map (kbd "C-d") nil)
+  (define-key rjsx-mode-map ">" nil))
+
+
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
+
+(add-hook 'rjsx-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
+; ================================================
+;               TYPESCRIPT MODES
+; ================================================
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-hook 'typescript-mode-hook 'tide-mode)
+
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-x C-e") 'ts-send-last-sexp)
+            (local-set-key (kbd "C-M-x") 'ts-send-last-sexp-and-go)
+            (local-set-key (kbd "C-c b") 'ts-send-buffer)
+            (local-set-key (kbd "C-c C-b") 'ts-send-buffer-and-go)
+            (local-set-key (kbd "C-c l") 'ts-load-file-and-go)))
 
 ; ================================================
 ;               PYTHON MODES
 ; ================================================
 (setq flymake-python-pyflakes-executable "flake8")
+
+
+; ================================================
+;               MARKDOWN MODES
+; ================================================
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 
 ; ================================================
@@ -157,26 +201,33 @@
 (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/")) ; package-install elpy
 
 (package-initialize)
-; (package-refresh-contents)
+;; (package-refresh-contents)
 (elpy-enable)
+
+(package-install 'flycheck)
+(global-flycheck-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" solarized-dark)))
+ '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (solidity-mode swift3-mode swift-mode cmake-mode docker-compose-mode react-snippets flymake-shell flymake-python-pyflakes flymake-jshint flymake-go flymake-gjshint flymake-cppcheck flycheck-irony flycheck-yamllint js-format jist javadoc-lookup jastadd-ast-mode jasminejs-mode jar-manifest-mode java-snippets java-imports neotree karma js-auto-beautify jst jsx-mode magit-imerge magit markdown-mode+ markdown-mode all ac-php ac-ispell web-mode web-beautify vue-mode vue-html-mode ranger python-django python pylint pygen org-beautify-theme org-ac org helm-aws helm-flyspell helm-mt android-mode ansible ac-js2 ac-html-bootstrap ac-html-angular ac-html json-reformat json-navigator json-mode js2-highlight-vars js2-refactor jdee jedi-direx jenkins-watch jenkins jedi haskell-mode helm-projectile helm ac-helm elpy multi-term js2-mode apache-mode color-theme-molokai color-theme-solarized ac-python ac-slime solarized-theme smex))))
+    (multi-term highlight-indentation neotree smex markdown-mode apache-mode abl-mode ac-helm ac-html ac-ispell ac-js2 ac-math ac-php ac-php-core ace-flyspell ace-isearch auto-highlight-symbol company-go company-jedi docker-compose-mode dockerfile-mode flymake-python-pyflakes flymake-yaml flyspell-correct flyspell-correct-helm foggy-night-theme helm-aws helm-projectile idle-highlight-mode ido-completing-read+ iedit jedi jedi-core jedi-direx jenkins jenkins-watch js2-mode js2-refactor json-mode magit mmm-mode mocha mocha-snippets mongo monokai-alt-theme monokai-theme ng2-mode nginx-mode org org-ac org-agenda-property org-alert org-autolist org-board org-brain org-bullets org-caldav org-preview-html org-projectile org-projectile-helm org-protocol-jekyll org-random-todo org-randomnote org-repo-todo org-review org-static-blog org-sticky-header org-super-agenda org-sync python python-cell python-django python-docstring python-environment python-info python-mode pyvenv rjsx-mode solarized-theme tide ts-comint tss typescript-mode vue-mode web-beautify web-completion-data web-mode web-server websocket)))
+ '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 91 :width normal)))))
 
 (ac-config-default)
+(put 'upcase-region 'disabled nil)

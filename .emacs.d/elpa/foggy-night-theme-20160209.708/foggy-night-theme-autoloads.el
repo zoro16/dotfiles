@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "foggy-night-theme" "foggy-night-theme.el"
-;;;;;;  (22968 10282 0 0))
+;;;;;;  (23164 2276 66722 961000))
 ;;; Generated autoloads from foggy-night-theme.el
 
 (when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
